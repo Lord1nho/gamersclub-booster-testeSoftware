@@ -1,4 +1,4 @@
-import { arrayRemove } from "./arrayRemove";
+import { arrayRemove } from "../options/arrayRemove";
 
 //teste
 describe('arrayRemove', () => {

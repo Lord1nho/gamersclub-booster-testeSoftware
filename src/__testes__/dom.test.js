@@ -1,5 +1,5 @@
 import { JSDOM } from 'jsdom';
-import { retrieveWindowVariables } from './dom';
+import { retrieveWindowVariables } from '../lib/dom';
 
 describe('Teste da função retrieveWindowVariables', () => {
   test('Retorna um objeto vazio quando não há variáveis definidas', () => {

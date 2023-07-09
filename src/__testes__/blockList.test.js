@@ -1,6 +1,6 @@
 import { jest } from '@jest/globals';
-import { loadJson } from './blockList';
-import { saveJson } from './blockList';
+import { loadJson } from '../lib/blockList';
+import { saveJson } from '../lib/blockList';
 import { JSDOM } from 'jsdom';
 
 describe('Chamando funções de blocklist', () => {
@@ -20,9 +20,6 @@ describe('Chamando funções de blocklist', () => {
     loadJson(e, callback);
     const expectedResult = '';
     expect(importOrig).toEqual(expectedResult);
-  });
-  it('chama a função loadJson', () => {
-   
   });
 });
 
