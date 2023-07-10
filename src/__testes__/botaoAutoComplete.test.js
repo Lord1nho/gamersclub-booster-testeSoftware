@@ -38,4 +38,3 @@ describe('getMapCode', () => {
       expect(result).toEqual(expected);
     });
 });
-  
