@@ -1,5 +1,6 @@
 import { getMapCode } from "../content-scripts/lobby/getCode";
 
+  //Constante simulando o arquivo com os mapas e codigos referentes
 const preVetosMaps = [
     {
       mapa: 'de_dust2',
@@ -23,6 +24,7 @@ const preVetosMaps = [
     }
   ];
   
+  //testes
 describe('getMapCode', () => {
     it('retorna o código correto para um mapa existente', () => {
       const mapa = 'de_nuke';

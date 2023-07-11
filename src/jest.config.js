@@ -1,4 +1,5 @@
 module.exports = {
-    testEnvironment: 'jsdom'
+    testEnvironment: 'jsdom',
+    setupFiles: ['jquery/dist/jquery.js']
 };
   
