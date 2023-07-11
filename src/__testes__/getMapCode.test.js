@@ -1,42 +1,42 @@
 import { getMapCode } from "../content-scripts/lobby/getCode";
 
-  //Constante simulando o arquivo com os mapas e codigos referentes
-const preVetosMaps = [
-    {
-      mapa: 'de_dust2',
-      codigo: 1
-    },
-    {
-      mapa: 'de_nuke',
-      codigo: 2
-    },
-    /*{
-      mapa: 'de_train',
-      codigo: 3
-    },*/
-    {
-      mapa: 'de_mirage',
-      codigo: 4
-    },
-    {
-      mapa: 'de_overpass',
-      codigo: 5
-    }
-  ];
-  
-  //testes
+//testes
 describe('getMapCode', () => {
-    it('retorna o código correto para um mapa existente', () => {
-      const mapa = 'de_nuke';
-      const expected = 2;
-      const result = getMapCode(mapa, preVetosMaps);
-      expect(result).toEqual(expected);
-    });
+  //Constante simulando o arquivo com os mapas e codigos referentes
+  const preVetosMaps = [
+      {
+        mapa: 'de_dust2',
+        codigo: 1
+      },
+      {
+        mapa: 'de_nuke',
+        codigo: 2
+      },
+      /*{
+        mapa: 'de_train',
+        codigo: 3
+      },*/
+      {
+        mapa: 'de_mirage',
+        codigo: 4
+      },
+      {
+        mapa: 'de_overpass',
+        codigo: 5
+      }
+    ];
+    
+  it('retorna o código correto para um mapa existente', () => {
+    const mapa = 'de_nuke';
+    const expected = 2;
+    const result = getMapCode(mapa, preVetosMaps);
+    expect(result).toEqual(expected);
+  });
   
-    it('retorna null para um mapa inexistente', () => {
-      const mapa = 'de_train';
-      const expected = null;
-      const result = getMapCode(mapa, preVetosMaps);
-      expect(result).toEqual(expected);
-    });
+  it('retorna null para um mapa inexistente', () => {
+    const mapa = 'de_train';
+    const expected = null;
+    const result = getMapCode(mapa, preVetosMaps);
+    expect(result).toEqual(expected);
+  });
 });

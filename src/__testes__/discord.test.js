@@ -20,7 +20,7 @@ describe('Chamando funções do discord', () => {
       if (warmupexpires<=0){
         expect(result).toBe('Acabou!'); // Verifica se o resultado está no formato esperado, ignorando o restante da string
       }else{
-      expect(result).toMatch(/^Até: \d{2}:\d{2}:\d{2}/); // Verifica se o resultado está no formato esperado, ignorando o restante da string
+        expect(result).toMatch(/^Até: \d{2}:\d{2}:\d{2}/); // Verifica se o resultado está no formato esperado, ignorando o restante da string
       }
     });
 
