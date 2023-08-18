@@ -13,3 +13,43 @@ export function getTeamInfo( data ) {
 
   return membersString.join( '' );
 }
+
+//adicionada recentemente para o teste de integração
+export async function sendMatchInfo( url, gcMatch ) {
+  if ( typeof gcMatch !== 'object' ) {
+    return false;
+  }
+
+  await send( url, {
+    color: '2391737',
+    fields: [
+      {
+        name: `Time ${gcMatch.teamA.admin.nick} - ` + gcMatch.teamA.averageLevel,
+        value: getTeamInfo( gcMatch.teamA )
+      },
+      {
+        name: `Time ${gcMatch.teamB.admin.nick} - ` + gcMatch.teamB.averageLevel,
+        value: getTeamInfo( gcMatch.teamB )
+      },
+      {
+        name: 'IP da partida:',
+        value: `connect ${gcMatch.ip};password ${gcMatch.password} \nsteam://connect/${gcMatch.ip}/${gcMatch.password}`
+      },
+      {
+        name: 'Mapa:',
+        value: gcMatch.map.name
+      },
+      {
+        name: 'Warmup',
+        value: getWarmupTime( gcMatch.warmupExpiresInSeconds )
+      },
+      {
+        name: 'Link da partida',
+        value: `https://${GC_URL}/lobby/partida/${gcMatch.gameId}`
+      }
+    ],
+    image: {
+      url: getMapImage( gcMatch.map.name )
+    }
+  } );
+}
