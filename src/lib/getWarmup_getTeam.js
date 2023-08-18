@@ -1,10 +1,12 @@
+//funções separadas lá do discord.js
+
 export function getWarmupTime( warmupexpires ) {
   if ( warmupexpires <= 0 ) { return 'Acabou!'; }
   const now = new Date();
   now.setSeconds( now.getSeconds() + warmupexpires );
   return `Até: ${now.toTimeString()}`;
 }
-//funções separadas lá do discord.js
+
 export function getTeamInfo( data ) {
   const membersFull = data.players;
   const membersString = membersFull.map( function ( e ) {
