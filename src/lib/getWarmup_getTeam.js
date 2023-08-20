@@ -1,4 +1,5 @@
 //funções separadas lá do discord.js
+import { getMapImage } from "./maps"; //Import da getMapImage
 
 export function getWarmupTime( warmupexpires ) {
   if ( warmupexpires <= 0 ) { return 'Acabou!'; }
@@ -45,10 +46,6 @@ export async function sendMatchInfo( url, gcMatch ) {
         name: 'Warmup',
         value: getWarmupTime( gcMatch.warmupExpiresInSeconds )
       },
-      {
-        name: 'Link da partida',
-        value: `https://${GC_URL}/lobby/partida/${gcMatch.gameId}`
-      }
     ],
     image: {
       url: getMapImage( gcMatch.map.name )

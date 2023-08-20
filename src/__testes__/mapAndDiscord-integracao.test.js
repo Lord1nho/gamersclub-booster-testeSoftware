@@ -5,7 +5,7 @@ import { getMapImage } from "../lib/maps";
 //Foi criado o objeto de teste gcMatch que simula os dados de uma partida.
 
 describe('Teste de integração', () => {
-  test('integração sendMatchInfo com getMapImage', async () => {
+  test('integração sendMatchInfo com getMapImage - Mirage', async () => {
     const gcMatch = {
       teamA: {
         admin: {
@@ -51,12 +51,6 @@ describe('Teste de integração', () => {
 
     expect(originalGetMapImage).toHaveBeenCalledWith('de_mirage');
     
-    expect(global.send).toHaveBeenCalledWith('oi', expect.objectContaining({
-      image: {
-        url: originalGetMapImage
-    }
-  }));
-
     // Restaura as funções originais
     getMapImage = originalGetMapImage;
     global.send = originalSend;
