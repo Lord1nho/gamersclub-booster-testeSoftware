@@ -58,7 +58,7 @@ const testCases = [
     { mapa: 'de_train', expectedURL: 'https://steamuserimages-a.akamaihd.net/ugc/1822269383661557181/6914D9DE513C94C61DE93F771B84087CD3A71855/'},
     { mapa: 'de_overpass', expectedURL: 'https://steamuserimages-a.akamaihd.net/ugc/1822269383661555590/09F33020BF5CD1C9621BF24913667609AA24A39B/'},
     { mapa: 'de_inferno', expectedURL: 'https://steamuserimages-a.akamaihd.net/ugc/1822269383661553917/B39374DE893CD45BD9361ECF82794445F3D3C6D7/'},
-    { mapa: 'de_cbble_classic', expectedURL: 'https://steamuserimages-a.akamaihd.net/ugc/1822269530633050395/22CAA5E07D68FB8FDA8643DDF69A58B2A388C9F6/'},//este caso irá apontar falha pois a url está errada
+    { mapa: 'de_cbble_classic', expectedURL: 'https://www.esportelandia.com.br/wp-content/uploads/2020/01/posi%C3%A7%C3%B5es-csgo-cobblestone.jpg?ezimgfmt=ng:webp/ngcb2'}, //!este caso irá apontar falha pois a url está errada
     { mapa: 'de_ancient', expectedURL: 'https://steamuserimages-a.akamaihd.net/ugc/1822269530633050395/22CAA5E07D68FB8FDA8643DDF69A58B2A388C9F6/'},
     { mapa: 'de_tuscan', expectedURL: 'https://external-preview.redd.it/vozvExNxbuYFYBP8b8Fu03mTH2y1ZJEzajAFtYTN1rA.jpg?auto=webp&s=88361088e82d5868ac26ecb522f009dd1c9bec0b'},
     { mapa: 'de_anubis', expectedURL: 'https://pbs.twimg.com/media/Fh9DINkWAAAy8sw?format=jpg&name=medium'},
