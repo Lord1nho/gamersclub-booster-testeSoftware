@@ -4,9 +4,23 @@ import { getMapImage } from "../lib/maps";
 
 //Foi criado o objeto de teste gcMatch que simula os dados de uma partida.
 
-describe('Teste de integração', () => {
-  test('integração sendMatchInfo com getMapImage - Mirage', async () => {
+const testCases = [
+  { mapa: 'de_mirage'},
+  { mapa: 'de_dust2'},
+  { mapa: 'de_nuke'},
+  { mapa: 'de_vertigo'},
+  { mapa: 'de_train'},
+  { mapa: 'de_overpass'},
+  { mapa: 'de_inferno'},
+  { mapa: 'de_cbble_classic'},
+  { mapa: 'de_ancient'},
+  { mapa: 'de_tuscan'},
+  { mapa: 'de_anubis'},
+  { mapa: 'de_cache'},
+];
 
+describe('Teste de integração', () => {
+  test.each(testCases)('integração sendMatchInfo com getMapImage - %s', async (testCase) => {
     const gcMatch = {
       teamA: {
         admin: {
@@ -33,12 +47,13 @@ describe('Teste de integração', () => {
       ip: '127.0.0.1',
       password: 'matchpass',
       map: {
-        name: 'de_mirage'
+        name: testCase.mapa
       },
       warmupExpiresInSeconds: 60,
       gameId: '12345'
     };
 
+    // Mock da função getMapImage
     const originalGetMapImage = getMapImage(gcMatch.map);
 
     // Mock da função sendMatchInfo
@@ -50,7 +65,7 @@ describe('Teste de integração', () => {
 
     await sendMatchInfo('url_mock', gcMatch);
 
-    expect(originalGetMapImage).toHaveBeenCalledWith('de_mirage');
+    expect(originalGetMapImage).toHaveBeenCalledWith(testCase.mapa);
     
     // Restaura as funções originais
     getMapImage = originalGetMapImage;
