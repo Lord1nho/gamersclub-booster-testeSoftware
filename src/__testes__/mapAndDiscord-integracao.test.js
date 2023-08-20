@@ -6,6 +6,7 @@ import { getMapImage } from "../lib/maps";
 
 describe('Teste de integração', () => {
   test('integração sendMatchInfo com getMapImage - Mirage', async () => {
+
     const gcMatch = {
       teamA: {
         admin: {
@@ -38,16 +39,16 @@ describe('Teste de integração', () => {
       gameId: '12345'
     };
 
-    // Mock da função getMapImage
     const originalGetMapImage = getMapImage(gcMatch.map);
 
     // Mock da função sendMatchInfo
-    const originalSend = global.send;
-    global.send = (url, data) => {
-      mockSend(url, data);
+    const mockSend = (url, data) =>{
+      console.log('send mock', url, data);
     };
+    const originalSend = global.send;
+    global.send = mockSend;
 
-    await sendMatchInfo('oi', gcMatch);
+    await sendMatchInfo('url_mock', gcMatch);
 
     expect(originalGetMapImage).toHaveBeenCalledWith('de_mirage');
     
